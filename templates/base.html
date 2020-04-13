@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>크누냥이{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'base_style.css' %}">
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <div id="nav">
+        <span id="knu_map">크누냥이</span>
+        <span id="menu">
+            <div id="umenu">
+                <div class="m" id="m1"><a href="{% url 'introduction:show_introduction' %}">소개</a></div>
+                <div class="m" id="m2"><a href="{% url 'catphoto:show_catphoto' %}">냥이한컷</a></div>
+                <div class="m" id="m3"><a href="{% url 'catdex:show_catdex' %}">크냥도감</a></div>
+                <div class="m" id="m4"><a href="{% url 'main:show_main' %}">크냥맵</a></div>
+            </div>
+        </span>
+        <span id="menu_m">
+            <i id="icon" class="fa fa-bars fa-4x"></i>
+            <div id="umenum">
+                <div class="m" id="m1m"><a href="{% url 'main:show_main' %}">크냥맵</a></div>
+                <div class="m" id="m2m"><a href="{% url 'catdex:show_catdex' %}">크냥도감</a></div>
+                <div class="m" id="m3m"><a href="{% url 'catphoto:show_catphoto' %}">냥이한컷</a></div>
+                <div class="m" id="m4m"><a href="{% url 'introduction:show_introduction' %}">소개</a></div>
+            </div>
+        </span>
+    </div>
+    <div id="map">
+    {% block content %}
+
+    {% endblock %}
+    </div>
+    <div id="footer">
+        <div id="wrapper">
+            <span>메일주소무단수집거부</span><br>
+
+            <span>대구광역시 북구 산격3동(대학로80) 경북대학교 IT-1호관 108호</span><br>
+            <span>Email : </span><br>
+
+            <span>copyright © 경북대학교 IT대학 학술동아리 해달, All Rights Reserved</span><br>
+            <span>기획 :  | 개발 : </span>
+        </div>
+    </div>
+    <script src="{% static 'base.js' %}"></script>
+</body>
+</html>
