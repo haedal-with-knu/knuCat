@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 
+{% block head %}
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=n481zzescl"></script>
+{% endblock %}
+
 {% block content %}
-<h2>이것이 메인</h2>
+{% load static %}
+<script src="{% static 'main/map.js' %}"></script>
 {% endblock %}
