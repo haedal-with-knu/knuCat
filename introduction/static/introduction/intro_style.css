@@ -1,0 +1,158 @@
+div{
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+div::-webkit-scrollbar{
+    display: none;
+}
+
+li{
+    list-style-type: none;
+}
+
+.category_bar{
+    float:left;
+   
+}
+
+.category_bar a{
+    color:black;
+}
+
+.list-group{
+    text-align: center;
+    border:#9d9d9d solid 1px;
+}
+
+.list-group ul{
+    padding-left: 0;
+}
+
+.list-group li:hover a{
+    color:gray;
+}
+
+.content_bar{
+    overflow: scroll;
+    float:left;
+    
+}
+
+.content-name{
+    text-align:center;
+    color:#4d4d4d;
+    font-size:20px;
+}
+
+.card{
+    padding: 20px 10px;
+    border-bottom:gray dotted 1px;
+}
+
+.card-title{
+    margin:0;
+    margin-bottom: 2px;
+}
+.card-text{
+    padding-bottom:1px;
+    margin: 0;
+    
+}
+.card-text a{
+    color:blue;
+}
+
+
+@media only screen and (min-width:769px){
+    .category_bar{
+        width:15%;
+        height:72vh;
+        padding:8px;
+        float:left;
+        font-size:15px;
+    }
+    .content_bar{
+        width:80%;
+        height:72vh;
+        padding:8px;
+        float:right;
+        overflow: scroll;
+    }
+    .content-name{
+        text-align:center;
+        color:#5d5d5d;
+        font-size:20px;
+    }
+   
+    .card-title{
+        font-weight: bold;
+        font-size:20px;
+    }
+    
+    .card-text{
+        font-size:15px;
+    }
+}
+
+@media only screen and (min-width : 426px) and (max-width : 768px){
+    .category_bar{
+        width:15%;
+        height:72vh;
+        padding:5px;
+        float:left;
+        font-size:12px;
+    }
+    .content_bar{
+        width:80%;
+        height:72vh;
+        padding:5px;
+        float:right;
+        overflow: scroll;
+    }
+    .content-name{
+        text-align:center;
+        color:#5d5d5d;
+        font-size:15px;
+    }
+   
+    .card-title{
+        font-weight: bold;
+        font-size:15px;
+    }
+    
+    .card-text{
+        font-size:12px;
+    }
+}
+
+@media only screen and (max-width : 425px){
+    .category_bar{
+        width:15%;
+        height:70vh;
+        padding:5px;
+        float:left;
+        font-size:8px;
+        
+    }
+    .content_bar{
+        width:75%;
+        height:70vh;
+        padding:5px;
+        float:right;
+        overflow: scroll;
+    }
+    .content-name{
+        text-align:center;
+        color:#5d5d5d;
+        font-size:12px;
+    }
+   
+    .card-title{
+        font-weight: bold;
+        font-size:12px;
+    }
+    
+    .card-text{
+        font-size:8px;
+    }
+}
