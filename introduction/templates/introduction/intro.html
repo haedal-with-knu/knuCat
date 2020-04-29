@@ -1,5 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>이것이 소개</h2>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="/static/introduction/intro_style.css"> 
+
+<div class="container">
+    <div class="category_bar">
+        <div class="list-group">
+            <ul>
+            <li><a href="/introduction" >All</a></li> 
+            </ul>
+            {% for c in categories %}
+            <ul>
+            <li><a href="{{c.get_absolute_url}}">{{c.title}}</a>
+            </ul>
+            {% endfor %}
+        
+        </div>
+    </div>
+    <div class="content_bar">
+        <div class="content-name">
+            {% if current_category %}{{current_category.title}}{% else %}All{% endif %}
+        </div>
+        <div class="row">
+            {% for intro in introductions %}
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title">{{intro.title}}</p>
+                        <p class="card-text">{{intro.content|linebreaksbr|urlize}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}

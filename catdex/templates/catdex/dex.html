@@ -1,5 +1,64 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>이것이 냥이도감</h2>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'catdex/catdex_style.css' %}"> 
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        $("ul.menu li").mouseover(function(){
+            $(">ul",this).slideDown("fast");
+        }),
+        $("ul.menu li").mouseleave(function(){
+            $(">ul",this).slideUp("fast");
+        });
+    });
+</script>
+<div class="container">
+    <div class="category_bar">
+        <div class="list-group">
+            <ul>
+            <li><a href="/catdex" class="list-group-item {% if not current_category %}active{% endif %}" >All</a></li> 
+            </ul>
+            {% for c in categories %}
+            <ul class="menu" style="list-style-type: none;">
+                <li>{{c.name}}
+                    <ul class="sub" >
+                    {% for sc in subcategories %}
+                    {% if sc.category.name == c.name %}
+                    <li>
+                        <a href="{{sc.get_absolute_url}}" class="list-group-sub" >{{sc.name}}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="content_bar">
+        <div class="content-name">
+            {% if current_category %}{{current_category.name}}{% else %}All Cats{% endif %}
+        </div>
+        <div class="row">
+            {% for cat in cats %}
+                <div class="card">
+                    <img class="card-img-top" src="{{cat.image.url}}"alt="Cat Image">
+                    <div class="card-body">
+                        <p class="card-title">{{cat.name}}</p>
+                        <p class="card-text">색깔: {{cat.color}}</p>
+                        <p class="card-text">영역: {{cat.domain}}</p>
+                        <p class="card-text">친밀도: {{cat.intimacy}}</p>
+                        <p class="card-text">성별: {{cat.gender}}</p>
+                        <p class="card-text">tnr: {{cat.tnr}}</p>
+                        <p class="card-text">{{cat.description|linebreaksbr}}</p>
+                    </div>
+                </div>
+            
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
